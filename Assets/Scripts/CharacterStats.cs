@@ -11,4 +11,5 @@ public class CharacterStats : ScriptableObject
     public int defense;
     public int attack;
     public int speed;
+    public bool isPC;
 }

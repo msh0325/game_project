@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class CharacterInstance
 {
     public string name;
@@ -5,6 +7,7 @@ public class CharacterInstance
     public int defense;
     public int attack;
     public int speed;
+    public bool isPC;
 
     public CharacterInstance(CharacterStats stats){
         name = stats.characterName;
@@ -12,5 +15,6 @@ public class CharacterInstance
         defense = stats.defense;
         attack = stats.attack;
         speed = stats.speed;
+        isPC = stats.isPC;
     }
 }
