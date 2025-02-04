@@ -8,19 +8,25 @@ using System.Linq;
 public class TurnGameManager : MonoBehaviour
 {
     public List<CharacterStats> characterStatsList;
+    public List<testSkill1> skillList;
     private List<CharacterInstance> turnOrder;
     [SerializeField] bool isfight = false;
     [SerializeField] GameObject skillpannel;
-    public List<CharacterInstance> pcTeam,enemyTeam;
+
+    CharacterInstance pc,enemy;
     private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
         //characterstats 데이터를 characterinstance로 복사
-        turnOrder = characterStatsList.Select(stats => new CharacterInstance(stats,1)).ToList();
+        turnOrder = characterStatsList.Select(stats => new CharacterInstance(stats,1,skillList[0])).ToList();
 
         //속도순으로 정렬
         SetTurnOrder();
+
+        pc = turnOrder[0];
+        enemy = turnOrder[1];
+
 
         foreach(var character in turnOrder){
             Debug.Log($"name : {character.name}, speed : {character.speed}");
@@ -60,16 +66,15 @@ public class TurnGameManager : MonoBehaviour
     }
     
     void EnemyTurn(CharacterInstance nowCharacter){
-        //nowCharacter.skill.baseSkill(nowCharacter,turnOrder[0]);
+        nowCharacter.useSkill(pc);
+
         EndTurn();
     }
 
     public void EndTurn(){
         Debug.Log("End Turn");
+        Debug.Log($"현재 PC의 체력 {pc.HP}");
         index +=1;
-        /*if(turnOrder[index]!=null){
-            StartTurn();
-        }*/
         if(turnOrder.Count > index){
             StartTurn();
         }

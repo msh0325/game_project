@@ -1414,6 +1414,8 @@ MonoBehaviour:
   characterStatsList:
   - {fileID: 11400000, guid: a6fa7c1f61d66bc46b7fcfa85b20b78c, type: 2}
   - {fileID: 11400000, guid: 420acbb72a6f6884d88c19d3d2130e7f, type: 2}
+  skillList:
+  - {fileID: 11400000, guid: f4f6961c4268fc345a6dae2e12d412ef, type: 2}
   isfight: 0
   skillpannel: {fileID: 1946193185}
 --- !u!4 &1366448425

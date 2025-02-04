@@ -7,10 +7,11 @@ using UnityEngine;
 public class testSkill1 : CharacterSkill
 {
 
-    int dmg;
+    public int dmg;
 
     public override void baseSkill(CharacterInstance user, CharacterInstance target)
     {
+        Debug.Log($"{user.name}이 {target.name}에게 공격!");
         base.baseSkill(user, target);
         target.takeDamage(dmg);
     }

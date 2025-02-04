@@ -14,8 +14,6 @@ public class CharacterStats : ScriptableObject
     public int speed;
     public bool isPC;
 
-    public void takeDamage(int dmg){
-        HP = HP - dmg;
-    }
+    
 
 }

@@ -10,8 +10,6 @@ public abstract class CharacterSkill : ScriptableObject
     
     public virtual void baseSkill(CharacterInstance user, CharacterInstance target){
         Debug.Log($"{user.name}이 {skillname}으로 {target.name}을 공격");
-        // 데미지 주는 그거
-        
     }
 
 }
