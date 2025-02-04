@@ -11,12 +11,13 @@ public class TurnGameManager : MonoBehaviour
     private List<CharacterInstance> turnOrder;
     [SerializeField] bool isfight = false;
     [SerializeField] GameObject skillpannel;
+    public List<CharacterInstance> pcTeam,enemyTeam;
     private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
         //characterstats 데이터를 characterinstance로 복사
-        turnOrder = characterStatsList.Select(stats => new CharacterInstance(stats)).ToList();
+        turnOrder = characterStatsList.Select(stats => new CharacterInstance(stats,1)).ToList();
 
         //속도순으로 정렬
         SetTurnOrder();
@@ -33,6 +34,7 @@ public class TurnGameManager : MonoBehaviour
     {
 
     }
+
 
     void SetTurnOrder(){
         turnOrder = turnOrder.OrderByDescending(character => character.speed).ToList();
@@ -52,16 +54,27 @@ public class TurnGameManager : MonoBehaviour
         }
         else{
             //적 턴 시작
+            skillpannel.SetActive(false);
+            EnemyTurn(nowPlayer);
         }
     }
     
+    void EnemyTurn(CharacterInstance nowCharacter){
+        //nowCharacter.skill.baseSkill(nowCharacter,turnOrder[0]);
+        EndTurn();
+    }
+
     public void EndTurn(){
         Debug.Log("End Turn");
         index +=1;
-        if(turnOrder[index]!=null){
+        /*if(turnOrder[index]!=null){
+            StartTurn();
+        }*/
+        if(turnOrder.Count > index){
             StartTurn();
         }
         else {
+            index = 0;
             SetTurnOrder();
             StartTurn();
         }

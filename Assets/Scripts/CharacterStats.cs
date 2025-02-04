@@ -1,4 +1,5 @@
 //ScriptableObject를 활용해 캐릭터의 초기 데이터 정의하기.
+using System.Collections.Generic;
 using UnityEngine;
 
 // assect 메뉴에 turnRPG/CharacterStats 위치에 CharacterStats 저장.
@@ -12,4 +13,9 @@ public class CharacterStats : ScriptableObject
     public int attack;
     public int speed;
     public bool isPC;
+
+    public void takeDamage(int dmg){
+        HP = HP - dmg;
+    }
+
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9292b8bcca6b9504e88e4b77d5dbeb8b, type: 3}
-  m_Name: csc
+  m_Name: testEnemy
   m_EditorClassIdentifier: 
-  characterName: "\uCD08\uC0C8\uCD08"
-  HP: 100
-  defense: 60
-  attack: 70
-  speed: 5
-  isPC: 1
+  characterName: "\uC801\uAD70"
+  HP: 90
+  defense: 70
+  attack: 40
+  speed: 4
+  isPC: 0
