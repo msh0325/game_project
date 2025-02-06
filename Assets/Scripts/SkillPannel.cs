@@ -7,44 +7,48 @@ public class SkillPannel : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] TurnGameManager gameManager;
     [SerializeField] Button supportBtn;
     [SerializeField] Button skill1Btn;
     [SerializeField] Button skill2Btn;
     [SerializeField] Button skill3Btn;
     [SerializeField] Button defenseBtn;
 
+    public Character selectedCharacter;
+    Character testtarget;
+
     void Start()
     {
         supportBtn.onClick.AddListener(()=>{
             Debug.Log("Support");
-            gameManager.EndTurn();
+            TurnGameManager.Instance.EndTurn();
         });
 
         skill1Btn.onClick.AddListener(()=>{
             Debug.Log("Skill1");
-            gameManager.EndTurn();
+            selectedCharacter.useSkill(testtarget);
+            TurnGameManager.Instance.EndTurn();
+            
         });
 
         skill2Btn.onClick.AddListener(()=>{
             Debug.Log("Skill2");
-            gameManager.EndTurn();
+            TurnGameManager.Instance.EndTurn();
         });
 
         skill3Btn.onClick.AddListener(()=>{
             Debug.Log("Skill3");
-            gameManager.EndTurn();
+            TurnGameManager.Instance.EndTurn();
         });
 
         defenseBtn.onClick.AddListener(()=>{
             Debug.Log("Defense");
-            gameManager.EndTurn();
+            TurnGameManager.Instance.EndTurn();
         });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetCharacter(Character character,Character target){
+        selectedCharacter = character;
+        testtarget = target;
     }
+
 }

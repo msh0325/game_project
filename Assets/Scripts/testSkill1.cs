@@ -9,7 +9,7 @@ public class testSkill1 : CharacterSkill
 
     public int dmg;
 
-    public override void baseSkill(CharacterInstance user, CharacterInstance target)
+    public override void baseSkill(Character user, Character target)
     {
         Debug.Log($"{user.name}이 {target.name}에게 공격!");
         base.baseSkill(user, target);

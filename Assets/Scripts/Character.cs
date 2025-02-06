@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterInstance
+public class Character
 {
     public string name;
     public int HP;
@@ -14,7 +14,7 @@ public class CharacterInstance
 
     public testSkill1 skill;
 
-    public CharacterInstance(CharacterStats stats, int startNum,testSkill1 testskill){
+    public Character(CharacterStats stats, int startNum,testSkill1 testskill){
         name = stats.characterName;
         HP = stats.HP;
         defense = stats.defense;
@@ -25,7 +25,7 @@ public class CharacterInstance
         skill = testskill;
     }
 
-    public void useSkill(CharacterInstance target){
+    public void useSkill(Character target){
         skill.baseSkill(this,target);
     }
 
@@ -35,9 +35,11 @@ public class CharacterInstance
     }
 
 
+
+/*
     public void UpdatePositionNum(int newNum){
         positionNum = newNum;
         Debug.Log($"{name}이 위치를 {newNum}번으로 바꿧어용");
     }
-
+*/
 }
