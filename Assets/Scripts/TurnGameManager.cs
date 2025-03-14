@@ -21,6 +21,9 @@ public class TurnGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Instance = this;
+
         //characterstats 데이터를 character로 복사
         turnOrder = characterStatsList.Select(stats => new Character(stats,1,skillList[0])).ToList();
 

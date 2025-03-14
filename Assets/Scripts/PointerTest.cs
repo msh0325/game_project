@@ -9,6 +9,8 @@ public class PointerTest : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] Character character;
 
     [SerializeField] GameObject skillPannel;
+    [SerializeField] Material outline;
+    [SerializeField] Material material;
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("클릭됐어용");
