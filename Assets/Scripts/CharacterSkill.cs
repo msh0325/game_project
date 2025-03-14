@@ -8,7 +8,7 @@ public abstract class CharacterSkill : ScriptableObject
     public string skillname;
     public string range;
     
-    public virtual void baseSkill(CharacterInstance user, CharacterInstance target){
+    public virtual void baseSkill(Character user, Character target){
         Debug.Log($"{user.name}이 {skillname}으로 {target.name}을 공격");
     }
 

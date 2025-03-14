@@ -7,19 +7,25 @@ using System.Linq;
 
 public class TurnGameManager : MonoBehaviour
 {
+
+    public static TurnGameManager Instance;
     public List<CharacterStats> characterStatsList;
+
     public List<testSkill1> skillList;
-    private List<CharacterInstance> turnOrder;
+    private List<Character> turnOrder;
     [SerializeField] bool isfight = false;
     [SerializeField] GameObject skillpannel;
 
-    CharacterInstance pc,enemy;
+    Character pc,enemy;
     private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
-        //characterstats 데이터를 characterinstance로 복사
-        turnOrder = characterStatsList.Select(stats => new CharacterInstance(stats,1,skillList[0])).ToList();
+
+        Instance = this;
+
+        //characterstats 데이터를 character로 복사
+        turnOrder = characterStatsList.Select(stats => new Character(stats,1,skillList[0])).ToList();
 
         //속도순으로 정렬
         SetTurnOrder();
@@ -51,12 +57,13 @@ public class TurnGameManager : MonoBehaviour
             Debug.Log("리스트가 비었어용");
             return;
         }
-        CharacterInstance nowPlayer = turnOrder[index];
+        Character nowPlayer = turnOrder[index];
         Debug.Log($"현재 {nowPlayer.name}의 턴!");
         
         if(nowPlayer.isPC){
             //플레이어 턴 시작
             skillpannel.SetActive(true);
+            skillpannel.GetComponent<SkillPannel>().SetCharacter(nowPlayer,enemy);
         }
         else{
             //적 턴 시작
@@ -65,7 +72,7 @@ public class TurnGameManager : MonoBehaviour
         }
     }
     
-    void EnemyTurn(CharacterInstance nowCharacter){
+    void EnemyTurn(Character nowCharacter){
         nowCharacter.useSkill(pc);
 
         EndTurn();
