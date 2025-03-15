@@ -3,12 +3,29 @@
         {
             "name" : "초새초",
             "text" : "안녕 초엘, 무슨 일이야.",
-            "face" : "talk"
+            "face" : "talk",
+            "imgSpace" : "left"
         },
+
         {
             "name" : "초엘",
             "text" : "안녕 오빠, 그냥 불러봤어.",
-            "face" : "talk"
+            "face" : "talk",
+            "imgSpace" : "right"
+        },
+
+        {
+            "name" : "초새초",
+            "text" : "비리랑 시리는 어디있어?",
+            "face" : "talk",
+            "imgSpace" : "left"
+        },
+
+        {
+            "name" : "초엘",
+            "text" : "몰라, 집 어딘가 숨어 있겠지.",
+            "face" : "talk",
+            "imgSpace" : "right"
         }
     ]
 }

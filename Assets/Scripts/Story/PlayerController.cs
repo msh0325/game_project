@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigid;
     private float horizon;
     [SerializeField] private float speed = 5.0f;
-    private bool isTalking = false;
+    public bool isTalking = false;
     public bool findQuest = false;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E)&&findQuest){
                 Debug.Log("Pressed E");
                 storyGM.dialogPannel.SetActive(true);
+                isTalking = true;
+                storyGM.GetComponent<StoryManager>().StartDialog();
             }
 
             if(horizon > 0){
