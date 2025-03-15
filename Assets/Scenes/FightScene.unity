@@ -499,6 +499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillPannel: {fileID: 0}
+  outline: {fileID: 0}
+  material: {fileID: 0}
 --- !u!1 &632474150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,6 +1830,7 @@ MonoBehaviour:
   skill2Btn: {fileID: 1779443607}
   skill3Btn: {fileID: 2089144164}
   defenseBtn: {fileID: 1960453960}
+  turnGM: {fileID: 1366448424}
 --- !u!1 &1960453958
 GameObject:
   m_ObjectHideFlags: 0

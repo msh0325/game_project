@@ -15,34 +15,37 @@ public class SkillPannel : MonoBehaviour
 
     public Character selectedCharacter;
     Character testtarget;
+    private GameManager gm;
+    [SerializeField] TurnGameManager turnGM;
 
     void Start()
     {
+        gm = GameManager.Instance;
         supportBtn.onClick.AddListener(()=>{
             Debug.Log("Support");
-            TurnGameManager.Instance.EndTurn();
+            turnGM.EndTurn();
         });
 
         skill1Btn.onClick.AddListener(()=>{
             Debug.Log("Skill1");
             selectedCharacter.useSkill(testtarget);
-            TurnGameManager.Instance.EndTurn();
+            turnGM.EndTurn();
             
         });
 
         skill2Btn.onClick.AddListener(()=>{
             Debug.Log("Skill2");
-            TurnGameManager.Instance.EndTurn();
+            turnGM.EndTurn();
         });
 
         skill3Btn.onClick.AddListener(()=>{
             Debug.Log("Skill3");
-            TurnGameManager.Instance.EndTurn();
+            turnGM.EndTurn();
         });
 
         defenseBtn.onClick.AddListener(()=>{
             Debug.Log("Defense");
-            TurnGameManager.Instance.EndTurn();
+            turnGM.EndTurn();
         });
     }
 

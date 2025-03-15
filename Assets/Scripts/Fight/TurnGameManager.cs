@@ -8,21 +8,20 @@ using System.Linq;
 public class TurnGameManager : MonoBehaviour
 {
 
-    public static TurnGameManager Instance;
     public List<CharacterStats> characterStatsList;
 
     public List<testSkill1> skillList;
     private List<Character> turnOrder;
     [SerializeField] bool isfight = false;
     [SerializeField] GameObject skillpannel;
+    GameManager gm;
 
     Character pc,enemy;
     private int index = 0;
     // Start is called before the first frame update
     void Start()
     {
-
-        Instance = this;
+        gm = GameManager.Instance;
 
         //characterstats 데이터를 character로 복사
         turnOrder = characterStatsList.Select(stats => new Character(stats,1,skillList[0])).ToList();
