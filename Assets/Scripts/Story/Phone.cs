@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class Phone : MonoBehaviour
 {
     private Animator anim;
-    private bool isShow = false;
+    public bool isShow = false;
     [SerializeField] Button cancelBtn;
+    private Vector2 showVec = new Vector2(470,0f);
+    private Vector2 closeVec = new Vector2(470,-1000f);
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
 
+        // cancle 버튼을 누르면 Phone UI 꺼짐
         cancelBtn.onClick.AddListener(()=>{
             if(isShow){
                 Debug.Log("Close Phone");
                 anim.SetTrigger("ClosePhone");
-                transform.position = new Vector2(transform.position.x, -1000f);
+                transform.position = closeVec;
                 isShow = false;
             }
         });
@@ -31,8 +34,15 @@ public class Phone : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab)&&!isShow){
             Debug.Log("Open Phone");
             anim.SetTrigger("ShowPhone");
-            transform.position = new Vector2(gameObject.transform.position.x,0f);
+            transform.position = showVec;
             isShow = true;
+        }
+
+        // Phone UI가 있을 때 tab 키를 누르면 UI 꺼짐
+        if(Input.GetKeyDown(KeyCode.Tab)&&isShow){
+            anim.SetTrigger("ClosePhone");
+            transform.position = closeVec;
+            isShow = false;
         }
     }
 }

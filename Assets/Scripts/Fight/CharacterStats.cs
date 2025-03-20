@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// assect 메뉴에 turnRPG/CharacterStats 위치에 CharacterStats 저장.
+// asset 메뉴에 turnRPG/CharacterStats 위치에 CharacterStats 저장.
 [CreateAssetMenu(fileName = "CharacterStats", menuName = "turnRPG/CharacterStats")]
 
 public class CharacterStats : ScriptableObject

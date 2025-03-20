@@ -1,0 +1,28 @@
+{
+    "dialogues" :[
+        {
+            "name" : "초엘",
+            "text" : "아 맞다 오빠, 슬슬 출근해야하지 않아?",
+            "face" : "talk",
+            "imgSpace" : "right"
+        },
+        {
+            "name" : "초엘",
+            "text" : "오늘도 늦기 전에 빨리 가는게 좋을텐데.",
+            "face" : "normal",
+            "imgSpace" : "right"
+        },
+        {
+            "name" : "초새초",
+            "text" : "아 진심 출근하기 싫네..",
+            "face" : "talk",
+            "imgSpace" : "left"
+        },
+        {
+            "name" : "초새초",
+            "text" : "귀찮지만 가야지. 다녀올게",
+            "face" : "normal",
+            "imgSpace" : "left"
+        }
+    ]
+}

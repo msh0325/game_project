@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
     public bool isTalking = false;
     public bool findQuest = false;
+    public int questIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Pressed E");
                 storyGM.dialogPannel.SetActive(true);
                 isTalking = true;
-                storyGM.GetComponent<StoryManager>().StartDialog();
+                storyGM.GetComponent<StoryManager>().StartDialog(questIndex);
             }
 
             if(horizon > 0){
