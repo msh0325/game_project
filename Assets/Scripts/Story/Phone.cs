@@ -8,6 +8,10 @@ public class Phone : MonoBehaviour
     private Animator anim;
     public bool isShow = false;
     [SerializeField] Button cancelBtn;
+    [SerializeField] Button RosterBtn;
+    [SerializeField] Button StageBtn;
+    [SerializeField] GameObject roster;
+    [SerializeField] GameObject stage;
     private Vector2 showVec = new Vector2(470,0f);
     private Vector2 closeVec = new Vector2(470,-1000f);
 
@@ -25,6 +29,20 @@ public class Phone : MonoBehaviour
                 isShow = false;
             }
         });
+
+        // roster 버튼을 눌러서 멤버 편성창 전환 (Phone이 켜져있을때만)
+        RosterBtn.onClick.AddListener(()=>{
+            Debug.Log("Roster");
+            roster.SetActive(true);
+            roster.GetComponent<Animator>().Play("ShowUI_Anim");
+        });
+
+        // stage 버튼을 눌러서 스테이지 선택창 전환 (퀘스트를 받았으면 갈 수 있음?)
+        StageBtn.onClick.AddListener(()=>{
+            Debug.Log("Stage");
+            stage.SetActive(true);
+            stage.GetComponent<Animator>().Play("ShowUI_Anim");
+        });
     }
 
     // Update is called once per frame
@@ -37,12 +55,17 @@ public class Phone : MonoBehaviour
             transform.position = showVec;
             isShow = true;
         }
-
         // Phone UI가 있을 때 tab 키를 누르면 UI 꺼짐
-        if(Input.GetKeyDown(KeyCode.Tab)&&isShow){
+        else if(Input.GetKeyDown(KeyCode.Tab)&&isShow){
+            Debug.Log("Close Phone");
             anim.SetTrigger("ClosePhone");
             transform.position = closeVec;
             isShow = false;
+        }
+        // ESC를 누르면 휴대폰으로 킨 UI없어짐(ex 편성창)
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            roster.SetActive(false);
+            stage.SetActive(false);
         }
     }
 }

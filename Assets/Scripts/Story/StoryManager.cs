@@ -23,6 +23,7 @@ public class StoryManager : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public GameObject dialogPannel;
+    [SerializeField] public GameObject[] Map;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogText;
     [SerializeField] Button nextBtn;

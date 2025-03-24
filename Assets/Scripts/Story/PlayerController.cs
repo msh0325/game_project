@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5.0f;
     public bool isTalking = false;
     public bool findQuest = false;
+    public bool findDoor = false;
+    public Vector2 teleportVec;
     public int questIndex = 0;
+    private bool nowmap = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +28,26 @@ public class PlayerController : MonoBehaviour
             horizon = Input.GetAxisRaw("Horizontal");
             velocity = new Vector2(horizon,0);
 
-            if(Input.GetKeyDown(KeyCode.E)&&findQuest){
-                Debug.Log("Pressed E");
-                storyGM.dialogPannel.SetActive(true);
-                isTalking = true;
-                storyGM.GetComponent<StoryManager>().StartDialog(questIndex);
+            if(Input.GetKeyDown(KeyCode.E)){
+                if(findQuest){
+                    Debug.Log("Pressed E");
+                    storyGM.dialogPannel.SetActive(true);
+                    isTalking = true;
+                    storyGM.GetComponent<StoryManager>().StartDialog(questIndex);
+                }
+                else if(findDoor){
+                    Debug.Log("Pressed E on Door");
+                    if(!nowmap){
+                        storyGM.Map[0].SetActive(false);
+                        storyGM.Map[1].SetActive(true);
+                    }
+                    else if(nowmap){
+                        storyGM.Map[0].SetActive(true);
+                        storyGM.Map[1].SetActive(false);
+                    }
+                    nowmap = !nowmap;
+                    transform.position = teleportVec;
+                }
             }
 
             if(horizon > 0){
