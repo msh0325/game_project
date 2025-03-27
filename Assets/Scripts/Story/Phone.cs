@@ -10,6 +10,8 @@ public class Phone : MonoBehaviour
     [SerializeField] Button cancelBtn;
     [SerializeField] Button RosterBtn;
     [SerializeField] Button StageBtn;
+    [SerializeField] Button QuestBtn;
+    [SerializeField] Button OptionBtn;
     [SerializeField] GameObject roster;
     [SerializeField] GameObject stage;
     private Vector2 showVec = new Vector2(470,0f);
